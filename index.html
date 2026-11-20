@@ -16,8 +16,9 @@
 :root[data-theme="dark"]{--bg:#1d1a17;--card:#26221e;--text:#f1e9df;--muted:#b3a698;--accent:#d08a63;--accent-text:#1d1a17;--line:#3a342e;color-scheme:dark}
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
-body{background:var(--bg);color:var(--text);font-family:Georgia,"Times New Roman",serif;display:flex;justify-content:center;padding:40px 20px}
-main{width:100%;max-width:480px;text-align:center}
+body{background:#3d3e43;color:var(--text);font-family:Georgia,"Times New Roman",serif;display:flex;justify-content:center;padding:40px 16px}
+.bg{position:fixed;inset:0;z-index:-1;background:#87bfda url("fondo.jpg") center top/cover no-repeat}
+main{width:100%;max-width:480px;text-align:center;margin-top:max(40vh,240px);background:var(--bg);border-radius:24px;padding:28px 20px 24px;box-shadow:0 10px 40px rgba(0,0,0,.35)}
 .mono{font-size:14px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase}
 h1{font-size:34px;font-weight:400;margin:14px 0 10px;line-height:1.2}
 .intro{color:var(--muted);line-height:1.6;margin:0 0 24px;font-size:17px}
@@ -37,6 +38,7 @@ h1{font-size:34px;font-weight:400;margin:14px 0 10px;line-height:1.2}
 </style>
 </head>
 <body>
+<div class="bg" role="img" aria-label="Ilustración de dos lobos marinos dándose un beso"></div>
 <main>
   <div class="mono">A &amp; M</div>
   <h1>¡Gracias por acompañarnos!</h1>
