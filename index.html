@@ -18,21 +18,24 @@
 html,body{margin:0;min-height:100%}
 body{background:#33363b;color:var(--text);font-family:Georgia,"Times New Roman",serif;display:flex;justify-content:center;padding:40px 16px}
 .bg{position:fixed;inset:0;z-index:-1;background:#87bfda url("fondo.jpg") center top/cover no-repeat}
-main{width:100%;max-width:480px;text-align:center;margin-top:max(40vh,240px);background:var(--panel);-webkit-backdrop-filter:blur(14px) saturate(1.1);backdrop-filter:blur(14px) saturate(1.1);border:1px solid var(--edge);border-radius:24px;padding:28px 20px 24px}
+main{width:100%;max-width:480px;text-align:center;margin-top:max(30vh,200px);background:var(--panel);-webkit-backdrop-filter:blur(14px) saturate(1.1);backdrop-filter:blur(14px) saturate(1.1);border:1px solid var(--edge);border-radius:24px;padding:28px 20px 24px}
 .mono{font-size:14px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase}
 h1{font-size:34px;font-weight:400;margin:14px 0 10px;line-height:1.2}
-.intro{color:var(--muted);line-height:1.6;margin:0 0 24px;font-size:17px}
-.tabs{display:flex;gap:8px;margin-bottom:14px}
-.tab{flex:1;padding:12px 8px;border-radius:999px;border:1px solid var(--accent);background:transparent;color:var(--accent);font:inherit;font-size:16px;cursor:pointer}
+.intro{color:var(--muted);line-height:1.5;margin:0 0 20px;font-size:16px}
+.ask{margin:0 0 10px;font-size:16px}
+.tabs{display:flex;gap:6px;margin-bottom:12px}
+.tab{flex:1;min-width:0;padding:7px 4px;border-radius:14px;border:1px solid var(--accent);background:transparent;color:var(--accent);font:inherit;font-size:14px;line-height:1.2;cursor:pointer}
+.tab small{display:block;font-size:11px;opacity:.8}
 .tab[aria-selected="true"]{background:var(--accent);color:var(--accent-text)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 20px;text-align:left}
 .card[hidden]{display:none}
+.hint{color:var(--muted);font-size:13px;margin:10px 0 0}
 .card h2{font-size:15px;font-weight:400;color:var(--muted);margin:14px 0 4px}
-.row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.row{cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
 .row:first-of-type{border-top:0}
 .row small{display:block;color:var(--muted);font-size:13px}
 .row span{font-size:17px;word-break:break-all}
-.copy{flex:none;border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;cursor:pointer}
+.copy{flex:none;border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:999px;padding:5px 11px;font:inherit;font-size:13px;cursor:pointer}
 .note{color:var(--muted);font-size:14px;line-height:1.5;margin:12px 0 8px}
 .foot{margin-top:28px;font-size:15px;color:var(--muted)}
 </style>
@@ -44,20 +47,31 @@ h1{font-size:34px;font-weight:400;margin:14px 0 10px;line-height:1.2}
   <h1>¡Gracias por acompañarnos!</h1>
   <p class="intro">Tu presencia es el mejor regalo. Si querés sumarte a nuestra luna de miel, acá están los datos para hacerlo.</p>
 
+  <p class="ask">¿Desde dónde nos transferís?</p>
   <div class="tabs" role="tablist">
-    <button class="tab" role="tab" aria-selected="true" data-p="ars">Pesos (ARS)</button>
-    <button class="tab" role="tab" aria-selected="false" data-p="usd">Dólares (desde el exterior)</button>
+    <button class="tab" role="tab" aria-selected="true" aria-controls="ars" data-p="ars">Pesos<small>Argentina</small></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="usdar" data-p="usdar">Dólares<small>Argentina</small></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="usd" data-p="usd">Dólares<small>exterior</small></button>
   </div>
 
-  <section class="card" id="ars">
+  <section class="card" id="ars" role="tabpanel">
+    <div class="row"><div><small>Alias</small><span id="a4">TU.ALIAS.AQUI</span></div><button class="copy" data-t="a4">Copiar</button></div>
     <div class="row"><div><small>Titular</small><span id="a1">Nombre y apellido</span></div><button class="copy" data-t="a1">Copiar</button></div>
     <div class="row"><div><small>Banco</small><span id="a2">Nombre del banco</span></div><button class="copy" data-t="a2">Copiar</button></div>
     <div class="row"><div><small>CBU</small><span id="a3">0000000000000000000000</span></div><button class="copy" data-t="a3">Copiar</button></div>
-    <div class="row"><div><small>Alias</small><span id="a4">TU.ALIAS.AQUI</span></div><button class="copy" data-t="a4">Copiar</button></div>
     <div class="row"><div><small>CUIL / CUIT</small><span id="a5">00-00000000-0</span></div><button class="copy" data-t="a5">Copiar</button></div>
   </section>
 
-  <section class="card" id="usd" hidden>
+  <section class="card" id="usdar" role="tabpanel" hidden>
+    <div class="row"><div><small>Alias</small><span id="d4">TU.ALIAS.USD</span></div><button class="copy" data-t="d4">Copiar</button></div>
+    <div class="row"><div><small>Titular</small><span id="d1">Nombre y apellido</span></div><button class="copy" data-t="d1">Copiar</button></div>
+    <div class="row"><div><small>Banco</small><span id="d2">Nombre del banco</span></div><button class="copy" data-t="d2">Copiar</button></div>
+    <div class="row"><div><small>CBU (cuenta en dólares)</small><span id="d3">0000000000000000000000</span></div><button class="copy" data-t="d3">Copiar</button></div>
+    <div class="row"><div><small>CUIL / CUIT</small><span id="d5">00-00000000-0</span></div><button class="copy" data-t="d5">Copiar</button></div>
+    <p class="note">Para transferir dólares desde una cuenta en dólares en Argentina.</p>
+  </section>
+
+  <section class="card" id="usd" role="tabpanel" hidden>
     <div class="row"><div><small>Beneficiary name</small><span id="u1">Nombre y apellido</span></div><button class="copy" data-t="u1">Copiar</button></div>
     <div class="row"><div><small>Bank name</small><span id="u2">Nombre del banco</span></div><button class="copy" data-t="u2">Copiar</button></div>
     <div class="row"><div><small>SWIFT / BIC</small><span id="u3">XXXXXXXX</span></div><button class="copy" data-t="u3">Copiar</button></div>
@@ -66,14 +80,14 @@ h1{font-size:34px;font-weight:400;margin:14px 0 10px;line-height:1.2}
     <p class="note">Para transferencias internacionales en dólares. Si tu banco te pide un banco intermediario o un concepto, escribinos y te pasamos el dato.</p>
   </section>
 
+  <p class="hint">Tocá cualquier dato para copiarlo.</p>
   <div class="foot">Con cariño, A &amp; M ♥</div>
 </main>
 <script>
 document.querySelectorAll('.tab').forEach(function(t){
   t.addEventListener('click',function(){
     document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected',x===t?'true':'false')});
-    document.getElementById('ars').hidden=t.dataset.p!=='ars';
-    document.getElementById('usd').hidden=t.dataset.p!=='usd';
+    document.querySelectorAll('.card').forEach(function(c){c.hidden=c.id!==t.dataset.p});
   });
 });
 function flash(b,msg){
@@ -107,8 +121,9 @@ function copyText(text,b,el){
     navigator.clipboard.writeText(text).then(done,fallback);
   }else{fallback()}
 }
-document.querySelectorAll('.copy').forEach(function(b){
-  b.addEventListener('click',function(){
+document.querySelectorAll('.row').forEach(function(r){
+  var b=r.querySelector('.copy');
+  r.addEventListener('click',function(){
     var el=document.getElementById(b.dataset.t);
     copyText(el.textContent.trim(),b,el);
   });
