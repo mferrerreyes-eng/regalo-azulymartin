@@ -35,7 +35,7 @@ h1{font-size:27px;font-weight:400;margin:8px 0 8px;line-height:1.15}
 .row{cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
 .row:first-of-type{border-top:0}
 .row small{display:block;color:var(--muted);font-size:13px}
-.row span{font-size:17px;word-break:break-all}
+.row span{font-size:17px;overflow-wrap:anywhere}
 .copy{flex:none;border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:999px;padding:5px 11px;font:inherit;font-size:13px;cursor:pointer}
 .note{color:var(--muted);font-size:14px;line-height:1.5;margin:12px 0 8px}
 .foot{margin-top:28px;font-size:15px;color:var(--muted)}
@@ -52,7 +52,7 @@ h1{font-size:27px;font-weight:400;margin:8px 0 8px;line-height:1.15}
   <div class="tabs" role="tablist">
     <button class="tab" role="tab" aria-selected="true" aria-controls="ars" data-p="ars">Pesos<small>Argentina</small></button>
     <button class="tab" role="tab" aria-selected="false" aria-controls="usdar" data-p="usdar">Dólares<small>Argentina</small></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="usd" data-p="usd">Dólares<small>exterior</small></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="usd" data-p="usd">Dólares<small>EE.UU.</small></button>
   </div>
 
   <section class="card" id="ars" role="tabpanel">
@@ -76,12 +76,13 @@ h1{font-size:27px;font-weight:400;margin:8px 0 8px;line-height:1.15}
   </section>
 
   <section class="card" id="usd" role="tabpanel" hidden>
-    <div class="row"><div><small>Beneficiary name</small><span id="u1">Nombre y apellido</span></div><button class="copy" data-t="u1">Copiar</button></div>
-    <div class="row"><div><small>Bank name</small><span id="u2">Nombre del banco</span></div><button class="copy" data-t="u2">Copiar</button></div>
-    <div class="row"><div><small>SWIFT / BIC</small><span id="u3">XXXXXXXX</span></div><button class="copy" data-t="u3">Copiar</button></div>
-    <div class="row"><div><small>Account number / IBAN</small><span id="u4">0000000000</span></div><button class="copy" data-t="u4">Copiar</button></div>
-    <div class="row"><div><small>Bank address</small><span id="u5">Dirección del banco</span></div><button class="copy" data-t="u5">Copiar</button></div>
-    <p class="note">Para transferencias internacionales en dólares. Si tu banco te pide un banco intermediario o un concepto, escribinos y te pasamos el dato.</p>
+    <div class="row"><div><small>Beneficiary name</small><span id="u1">Martin Ferrer</span></div><button class="copy" data-t="u1">Copiar</button></div>
+    <div class="row"><div><small>Bank name</small><span id="u2">Lead Bank</span></div><button class="copy" data-t="u2">Copiar</button></div>
+    <div class="row"><div><small>Routing number (ACH / Wire)</small><span id="u3">101019644</span></div><button class="copy" data-t="u3">Copiar</button></div>
+    <div class="row"><div><small>Account number</small><span id="u4">213117294137</span></div><button class="copy" data-t="u4">Copiar</button></div>
+    <div class="row"><div><small>Account type</small><span id="u9">Checking</span></div><button class="copy" data-t="u9">Copiar</button></div>
+    <div class="row"><div><small>Bank address</small><span id="u5">1801 Main St., Kansas City, MO 64108, USA</span></div><button class="copy" data-t="u5">Copiar</button></div>
+    <p class="note">Solo por ACH o Wire desde una cuenta en Estados Unidos. <span lang="en">US transfers only (ACH or domestic wire).</span></p>
   </section>
 
   <p class="hint">Tocá cualquier dato para copiarlo.</p>
