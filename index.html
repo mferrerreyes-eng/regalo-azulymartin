@@ -64,11 +64,12 @@ h1{font-size:27px;font-weight:400;margin:8px 0 8px;line-height:1.15}
   </section>
 
   <section class="card" id="usdar" role="tabpanel" hidden>
-    <div class="row"><div><small>Alias</small><span id="d4">TU.ALIAS.USD</span></div><button class="copy" data-t="d4">Copiar</button></div>
+    <div class="row"><div><small>Alias</small><span id="d4">CRUCE.FORMA.PODER</span></div><button class="copy" data-t="d4">Copiar</button></div>
     <div class="row"><div><small>Titular</small><span id="d1">Nombre y apellido</span></div><button class="copy" data-t="d1">Copiar</button></div>
-    <div class="row"><div><small>Banco</small><span id="d2">Nombre del banco</span></div><button class="copy" data-t="d2">Copiar</button></div>
-    <div class="row"><div><small>CBU (cuenta en dólares)</small><span id="d3">0000000000000000000000</span></div><button class="copy" data-t="d3">Copiar</button></div>
-    <div class="row"><div><small>CUIL / CUIT</small><span id="d5">00-00000000-0</span></div><button class="copy" data-t="d5">Copiar</button></div>
+    <div class="row"><div><small>Banco</small><span id="d2">ICBC</span></div><button class="copy" data-t="d2">Copiar</button></div>
+    <div class="row"><div><small>CBU (cuenta en dólares)</small><span id="d3">0150861911000001400166</span></div><button class="copy" data-t="d3">Copiar</button></div>
+    <div class="row"><div><small>Número de cuenta</small><span id="d6">CA U$S 0861/11001400/16</span></div><button class="copy" data-t="d6">Copiar</button></div>
+    <div class="row"><div><small>CUIL / CUIT</small><span id="d5" data-copy="20394668932">20-39466893-2</span></div><button class="copy" data-t="d5">Copiar</button></div>
     <p class="note">Para transferir dólares desde una cuenta en dólares en Argentina.</p>
   </section>
 
@@ -126,7 +127,7 @@ document.querySelectorAll('.row').forEach(function(r){
   var b=r.querySelector('.copy');
   r.addEventListener('click',function(){
     var el=document.getElementById(b.dataset.t);
-    copyText(el.textContent.trim(),b,el);
+    copyText(el.dataset.copy||el.textContent.trim(),b,el);
   });
 });
 </script>
